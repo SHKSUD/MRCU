@@ -43,13 +43,25 @@
 
         .header-left { display: flex; align-items: center; gap: 20px; }
 
+        CSS (Replace .publisher style):
+ 
         .publisher {
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--navy);
+            width: 120px;
+            height: auto;
         }
+ 
+        .publisher img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+ 
+ 
+HTML (Replace publisher div — around line 35-36):
+ 
+        <div class="publisher">
+            <img src="./Difactoreallogo.png" alt="DiFacto Logo">
+        </div>
 
         .separator {
             width: 1px;
@@ -453,7 +465,7 @@
 <!-- HEADER -->
 <div class="header">
     <div class="header-left">
-        <div class="publisher">DiFacto</div>
+       <img src="./Difactoreallogo.png" alt="DiFacto Logo" style="width: 100px; height: auto;">
         <div class="separator"></div>
         <div>
             <div class="course-name">MoRo IMR Training Academy</div>
