@@ -1,0 +1,138 @@
+{
+  "moduleId": "L1-M3",
+  "title": "Control Interfaces & Operations",
+  "level": "L1",
+  "moduleNumber": 3,
+  "duration": "2 hrs",
+  "nextModule": "L1-M4",
+  "previousModule": "L1-M2",
+  "prerequisite": "L1-M2 (80%)",
+  "contentStatus": "DRAFT — interface details pending SME verification against live ANT dashboard",
+
+  "sections": [
+    {
+      "sectionId": 1,
+      "eyebrow": "Level 1 · Module 3 · Section 01",
+      "title": "Meeting the Control Interface",
+      "learningObjectives": [
+        "Understand what the ANT interface is and who uses it",
+        "Recognize the difference between viewing MoRo and controlling MoRo"
+      ],
+      "content": "Every MoRo unit is managed through software, not physical buttons alone. This software — the ANT interface — is where operators see what MoRo is doing, send it new instructions, and step in if something needs manual attention. You don't need to be technical to use it. Think of it less like programming and more like a dashboard: information in one place, actions a click away. Most of what you'll do day-to-day is watch and confirm, not build anything from scratch.",
+      "keyTerms": ["ANT interface", "operator view", "dashboard"]
+    },
+    {
+      "sectionId": 2,
+      "eyebrow": "Level 1 · Module 3 · Section 02",
+      "title": "What the Dashboard Shows You",
+      "learningObjectives": [
+        "Identify the main categories of information on the dashboard",
+        "Know where to look for MoRo's current status versus its assigned tasks"
+      ],
+      "content": "The dashboard is organized around three questions you'll ask constantly: Where is MoRo right now? What is it doing? What's it supposed to do next? Fleet status shows you active units and their locations. Mission status shows current and queued tasks. System settings sit separately, since they're changed far less often than they're viewed. Exact menu names and layout may vary slightly by ANT version — this module will be updated once we confirm final interface details with DiFacto's engineering team.",
+      "keyTerms": ["fleet status", "mission status", "system settings"]
+    },
+    {
+      "sectionId": 3,
+      "eyebrow": "Level 1 · Module 3 · Section 03",
+      "title": "Starting MoRo Safely",
+      "learningObjectives": [
+        "List the sequence of checks before powering on MoRo",
+        "Understand why a system-ready confirmation matters before operation"
+      ],
+      "content": "Starting MoRo isn't just pressing a button. Before power-on, a quick visual check confirms the path is clear and nothing is obstructing sensors. Once powered on, MoRo runs its own internal checks — battery, navigation, safety systems — before it reports as ready. Operators wait for that 'ready' confirmation before assigning any mission. Skipping this step is one of the most common causes of early-shift delays, not because MoRo fails, but because an unconfirmed start gets interrupted partway through."
+    },
+    {
+      "sectionId": 4,
+      "eyebrow": "Level 1 · Module 3 · Section 04",
+      "title": "Manual Control & Override",
+      "learningObjectives": [
+        "Understand when manual control is appropriate versus automated operation",
+        "Know how emergency stop interacts with manual and automated modes"
+      ],
+      "content": "MoRo operates autonomously by default — that's the point of an IMR. But every unit supports manual override for situations like repositioning during setup, moving MoRo out of a blocked path, or testing after maintenance. Manual control does not bypass safety systems. Emergency stop works identically whether MoRo is running a mission or under manual control — it always takes priority, immediately.",
+      "keyTerms": ["manual override", "emergency stop", "autonomous mode"]
+    },
+    {
+      "sectionId": 5,
+      "eyebrow": "Level 1 · Module 3 · Section 05",
+      "title": "Working With Missions",
+      "learningObjectives": [
+        "Describe the basic mission lifecycle: load, start, monitor, pause, resume",
+        "Understand what happens to a paused mission"
+      ],
+      "content": "A mission is simply a defined task — move from point A to point B, carry out a handoff, repeat a route. Operators load a mission, start it, and monitor progress from the dashboard. If something needs attention, a mission can be paused without cancelling it — MoRo holds its position safely and resumes exactly where it left off once cleared. This matters operationally: pausing is a normal, safe action, not an error state."
+    },
+    {
+      "sectionId": 6,
+      "eyebrow": "Level 1 · Module 3 · Section 06",
+      "title": "Reading Status Lights",
+      "learningObjectives": [
+        "Recognize what MoRo's status indicators communicate at a glance",
+        "Know when a status light means 'wait' versus 'needs attention'"
+      ],
+      "content": "Beyond the dashboard, MoRo communicates status directly through indicator lights — useful when you're on the floor, not looking at a screen. These fall into three general categories: normal operation, waiting/paused, and attention-needed. This module will be updated with the confirmed color-and-pattern reference once verified against current MoRo hardware specifications."
+    }
+  ],
+
+  "quiz": {
+    "passingScore": 80,
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the ANT interface primarily used for?",
+        "options": [
+          "Physically repairing MoRo units",
+          "Viewing MoRo's status and sending it instructions",
+          "Charging the battery"
+        ],
+        "correctAnswer": 1,
+        "feedback": "Correct. The ANT interface is where operators monitor and control MoRo — not a physical maintenance tool."
+      },
+      {
+        "id": 2,
+        "question": "Before assigning a mission, what should an operator wait for?",
+        "options": [
+          "Nothing — missions can be assigned immediately after power-on",
+          "A system-ready confirmation after MoRo's internal checks complete",
+          "Approval from a supervisor"
+        ],
+        "correctAnswer": 1,
+        "feedback": "Correct. Assigning a mission before MoRo confirms it's ready is a common cause of interrupted starts."
+      },
+      {
+        "id": 3,
+        "question": "Does emergency stop behave differently in manual mode versus autonomous mode?",
+        "options": [
+          "Yes, manual mode requires a separate stop procedure",
+          "No, emergency stop works identically and takes priority in both modes",
+          "Emergency stop only works in autonomous mode"
+        ],
+        "correctAnswer": 1,
+        "feedback": "Correct. Emergency stop is not mode-dependent — it always takes priority immediately."
+      },
+      {
+        "id": 4,
+        "question": "What happens when a mission is paused?",
+        "options": [
+          "It is cancelled and must be restarted from the beginning",
+          "MoRo holds its position safely and resumes from where it left off",
+          "MoRo returns automatically to its charging dock"
+        ],
+        "correctAnswer": 1,
+        "feedback": "Correct. Pausing is a safe, normal action — not equivalent to cancelling."
+      },
+      {
+        "id": 5,
+        "question": "What are MoRo's status indicator lights useful for?",
+        "options": [
+          "Replacing the need for the dashboard entirely",
+          "Communicating status at a glance without needing to check a screen",
+          "Showing the current time"
+        ],
+        "correctAnswer": 1,
+        "feedback": "Correct. Status lights give floor-level visibility without requiring a screen check."
+      }
+    ]
+  }
+}
