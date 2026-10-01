@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoRo IMR Training Academy — L1 Module 1</title>
+    <title>MoRo IMR Training Academy</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -424,12 +424,173 @@
             line-height: 1.8;
         }
 
+        /* ── DRAFT BANNER ── */
+        .draft-banner {
+            background: rgba(212,101,26,0.08);
+            border: 1px solid rgba(212,101,26,0.2);
+            border-radius: 4px;
+            padding: 12px 16px;
+            font-size: 12px;
+            color: var(--orange);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ── HOME VIEW ── */
+        #homeView { padding: 56px 64px; max-width: 1100px; }
+
+        .home-eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--orange);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .home-title {
+            font-family: 'Merriweather', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .home-subtitle {
+            font-size: 15px;
+            color: var(--muted);
+            margin-bottom: 56px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--divider);
+            max-width: 600px;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .level-card {
+            background: var(--white);
+            border: 1px solid var(--divider);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .level-card-header {
+            padding: 20px 24px 16px;
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .level-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--navy);
+            padding: 4px 10px;
+            border-radius: 2px;
+            margin-bottom: 10px;
+        }
+
+        .level-name {
+            font-family: 'Merriweather', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .level-desc {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .module-list { padding: 8px 0; }
+
+        .module-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            border-left: 2px solid transparent;
+            text-decoration: none;
+        }
+
+        .module-link:hover {
+            background: var(--hover);
+            border-left-color: var(--orange);
+        }
+
+        .module-link-pending {
+            cursor: default;
+            opacity: 0.45;
+        }
+
+        .module-link-pending:hover {
+            background: none;
+            border-left-color: transparent;
+        }
+
+        .module-link-pending .module-link-title {
+            font-style: italic;
+        }
+
+        .module-link-num {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--muted);
+            font-family: 'Merriweather', serif;
+            width: 18px;
+            flex-shrink: 0;
+        }
+
+        .module-link-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .module-link:hover .module-link-title { color: var(--orange); }
+        .module-link:hover .module-link-num { color: var(--orange); }
+
+        /* ── LOADING STATE ── */
+        .loading-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .loading-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--orange);
+            animation: pulse 1.2s infinite;
+        }
+        .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
             .layout { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: static; padding: 20px; }
             .main { padding: 32px 24px; }
             .section-title { font-size: 26px; }
+            #homeView { padding: 32px 24px; }
+            .home-title { font-size: 28px; }
         }
 
         @media (max-width: 480px) {
@@ -437,6 +598,7 @@
             .main { padding: 24px 16px; }
             .btn-row { flex-direction: column; gap: 12px; }
             .score-num { font-size: 48px; }
+            #homeView { padding: 24px 16px; }
         }
     </style>
 </head>
@@ -445,469 +607,464 @@
 <!-- HEADER -->
 <div class="header">
     <div class="header-left">
-       <img src="./Difactoreallogo.jpg" alt="DiFacto Logo" style="width: 100px; height: auto;">
+        <img src="./Difactoreallogo.jpg" alt="DiFacto Logo" style="width: 100px; height: auto;">
         <div class="separator"></div>
         <div>
             <div class="course-name">MoRo IMR Training Academy</div>
-            <div class="course-level">Level 1 — Awareness Training</div>
+            <div class="course-level" id="headerLevel">Level 1 — Awareness Training</div>
         </div>
     </div>
     <div class="header-right">
-        <div class="progress-wrap">
+        <div class="progress-wrap" id="progressWrap" style="display:none">
             <div class="progress-label">Module Progress</div>
             <div class="progress-bar">
-                <div class="progress-fill" id="progressFill" style="width:16%"></div>
+                <div class="progress-fill" id="progressFill" style="width:0%"></div>
+            </div>
+        </div>
+        <button class="btn btn-secondary" id="homeBtn" onclick="goHome()" style="display:none; padding:8px 16px; font-size:12px;">
+            &#8592; All Modules
+        </button>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- HOME VIEW                                      -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="homeView">
+    <div class="home-eyebrow">MoRo IMR Training Academy</div>
+    <div class="home-title">Select a Module to Begin</div>
+    <p class="home-subtitle">Seven learning levels covering awareness, operations, fleet management, integration, supervision, and technical certification.</p>
+
+    <div class="levels-grid" id="levelsGrid">
+        <!-- Populated by JS -->
+    </div>
+
+    <div class="section-footer" style="margin-top:48px;">
+        <p>MoRo IMR Training Academy &copy; 2026 DiFacto Robotics &amp; Automation</p>
+        <p>Designed to meet Industry Training Academy (ITA) standards. Safety content aligned with ISO 13849-1.</p>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- MODULE VIEW                                    -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="moduleView" style="display:none;">
+    <div class="layout">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-module">
+                <div class="module-label" id="sidebarModuleLabel">Loading...</div>
+                <div id="sidebarNav"></div>
+                <div class="module-status">
+                    <div class="status-dot active" id="statusDot"></div>
+                    <span id="statusLabel">In Progress</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main" id="mainContent">
+            <div class="loading-wrap">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <span>Loading module...</span>
             </div>
         </div>
     </div>
 </div>
 
-<!-- LAYOUT -->
-<div class="layout">
+<script>
+// ═══════════════════════════════════════════════════
+// CURRICULUM MAP
+// ═══════════════════════════════════════════════════
+// Source of truth: Curriculum_Structure_Source_of_Truth.xlsx (per CDD & SOW)
+const LEVELS = [
+    { id: 'L1',  name: 'IMR Awareness',                        desc: 'Foundation knowledge for any factory floor personnel.',              color: '#0A1D44' },
+    { id: 'L2',  name: 'IMR Operator Certification',            desc: 'Hands-on operation and daily management of MoRo units.',             color: '#1A5276' },
+    { id: 'L3A', name: 'Technician',                            desc: 'Maintenance, diagnostics and field repair for MoRo units.',           color: '#1A7A4A' },
+    { id: 'L3B', name: 'Programmer',                            desc: 'Mission programming, mapping and site commissioning.',                color: '#7D6608' },
+    { id: 'L4A', name: 'Systems Engineer',                      desc: 'PLC, OPC-UA, MES integration and multi-robot cell design.',           color: '#922B21' },
+    { id: 'L4B', name: 'Advanced Programming',                  desc: 'Full CNC/PLC/IMR integrated workflows; capstone project.',            color: '#76448A' },
+    { id: 'L5',  name: 'Master Instructor / Train-the-Trainer', desc: 'Certifying DiFacto and partner staff to train other MoRo users.',     color: '#17202A' }
+];
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <div class="sidebar-module">
-            <div class="module-label">Module 1 — What is MoRo?</div>
-            <div class="nav-item active" onclick="go('s1')">
-                <div class="nav-num">01</div>
-                <div class="nav-text">Introduction</div>
-            </div>
-            <div class="nav-item" onclick="go('s2')">
-                <div class="nav-num">02</div>
-                <div class="nav-text">The Basics</div>
-            </div>
-            <div class="nav-item" onclick="go('s3')">
-                <div class="nav-num">03</div>
-                <div class="nav-text">Three Variants</div>
-            </div>
-            <div class="nav-item" onclick="go('s4')">
-                <div class="nav-num">04</div>
-                <div class="nav-text">How Navigation Works</div>
-            </div>
-            <div class="nav-item" onclick="go('s5')">
-                <div class="nav-num">05</div>
-                <div class="nav-text">Safety on the Floor</div>
-            </div>
-            <div class="nav-item" onclick="go('s6')">
-                <div class="nav-num">06</div>
-                <div class="nav-text">Knowledge Check</div>
-            </div>
-            <div class="module-status">
-                <div class="status-dot active" id="statusDot"></div>
-                <span id="statusLabel">In Progress</span>
-            </div>
-        </div>
-    </div>
+// title: null  ->  module slot confirmed to exist (per CDD) but exact title not yet sourced.
+// Rendered as "Coming Soon" — never filled with an invented/guessed title.
+const MODULE_TITLES = {
+    'L1':  [
+        'What is MoRo?',
+        'How Does MoRo Navigate?',
+        'Control Interfaces & Operations',
+        'Safety Protocols & E-Stop',
+        'Teamwork & Coexistence'
+    ],
+    'L2':  [
+        'Missions & Task Programming',
+        'Payload Handling & Coordination',
+        'Battery Management & Charging',
+        'Fleet Management (Multi-Robot)',
+        'Troubleshooting & Error Codes',
+        'Advanced Missions & Optimization'
+    ],
+    'L3A': [ null, null, null, null, 'Diagnostic Procedures (topics corrected)', null, 'Maintenance Simulation & Field Drill' ],
+    'L3B': [ null, null, null, null, 'API & Custom Integration', 'Commissioning a New Site' ],
+    'L4A': [ null, null, null, null, null, 'System Architecture & Scalability' ],
+    'L4B': [ null, null, null, null, 'Capstone Project (Peer Reviewed)' ],
+    'L5':  [ null, null, 'FANUC Co-Training Module', null, null ]
+};
 
-    <!-- MAIN -->
-    <div class="main">
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+let currentModule = null;
+let currentSectionIndex = 0;
+let quizAnswers = {};
 
-        <!-- SECTION 1 -->
-        <div class="view active" id="s1">
-            <div class="section-eyebrow">Level 1 · Module 1 · Section 01</div>
-            <div class="section-title">Introduction</div>
-            <div class="section-meta">1.5 hours · Beginner · No prerequisites</div>
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+function init() {
+    buildHomeView();
+    const params = new URLSearchParams(window.location.search);
+    const mid = params.get('module');
+    if (mid) {
+        loadModule(mid);
+    } else {
+        showHome();
+    }
+}
 
-            <p class="body-text">Good morning. Today you're going to learn about something that's changing how this factory works — <strong>MoRo, an Intelligent Mobile Robot</strong>.</p>
+// ═══════════════════════════════════════════════════
+// HOME VIEW
+// ═══════════════════════════════════════════════════
+function buildHomeView() {
+    const grid = document.getElementById('levelsGrid');
+    grid.innerHTML = '';
 
-            <p class="body-text">Over the next few weeks, MoRo will be working alongside you on the factory floor. It will carry materials, coordinate with machines, and free you from the most repetitive parts of the job. But before that happens, you need to understand what it is, how it behaves, and how to stay safe around it.</p>
+    LEVELS.forEach(level => {
+        const titles = MODULE_TITLES[level.id];
+        const moduleLinksHTML = titles.map((title, i) => {
+            const mid = `${level.id}-M${i + 1}`;
+            if (title === null) {
+                return `
+                    <div class="module-link module-link-pending" aria-disabled="true">
+                        <span class="module-link-num">${String(i + 1).padStart(2, '0')}</span>
+                        <span class="module-link-title">Coming Soon</span>
+                    </div>`;
+            }
+            return `
+                <div class="module-link" onclick="loadModule('${mid}')">
+                    <span class="module-link-num">${String(i + 1).padStart(2, '0')}</span>
+                    <span class="module-link-title">${title}</span>
+                </div>`;
+        }).join('');
 
-            <p class="body-text">This module has one purpose: <em>to answer the question, what is MoRo?</em> We're not teaching you to operate it yet. We're building the foundation — so that everything that follows makes sense.</p>
+        grid.innerHTML += `
+            <div class="level-card">
+                <div class="level-card-header">
+                    <div class="level-badge" style="background:${level.color}">${level.id}</div>
+                    <div class="level-name">${level.name}</div>
+                    <div class="level-desc">${level.desc}</div>
+                </div>
+                <div class="module-list">${moduleLinksHTML}</div>
+            </div>`;
+    });
+}
 
-            <div class="insight">
-                <div class="insight-label">Why This Matters to You</div>
-                <p>Understanding MoRo means understanding your job is changing — but not in a threatening way. Your work shifts toward <strong>supervision, quality, and decision-making</strong>. MoRo handles the repetitive, physical tasks. That's a better division of labor for everyone, and this training ensures you can work confidently alongside it.</p>
-            </div>
+function showHome() {
+    document.getElementById('homeView').style.display = 'block';
+    document.getElementById('moduleView').style.display = 'none';
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('homeBtn').style.display = 'none';
+    document.getElementById('headerLevel').textContent = 'Level 1 — Awareness Training';
+    history.pushState({}, '', window.location.pathname);
+}
 
-            <div class="h2">What You'll Learn in This Module</div>
-            <ul class="content-list">
-                <li>What an Intelligent Mobile Robot is and why it matters</li>
-                <li>What MoRo can and cannot do</li>
-                <li>How it's different from older systems like AGVs and conveyors</li>
-                <li>The three variants and their specifications</li>
-                <li>How navigation works (in simple terms)</li>
-                <li>Safety rules and your responsibilities on the floor</li>
-            </ul>
+function goHome() {
+    showHome();
+}
 
+// ═══════════════════════════════════════════════════
+// MODULE LOADER
+// ═══════════════════════════════════════════════════
+async function loadModule(moduleId) {
+    document.getElementById('homeView').style.display = 'none';
+    document.getElementById('moduleView').style.display = 'block';
+    document.getElementById('progressWrap').style.display = 'block';
+    document.getElementById('homeBtn').style.display = 'block';
+
+    // Show loading
+    document.getElementById('mainContent').innerHTML = `
+        <div class="loading-wrap">
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <span>Loading module...</span>
+        </div>`;
+    document.getElementById('sidebarNav').innerHTML = '';
+    document.getElementById('sidebarModuleLabel').textContent = 'Loading...';
+
+    // Update URL
+    history.pushState({}, '', `?module=${moduleId}`);
+
+    try {
+        const response = await fetch(`./modules/${moduleId}.json`);
+        if (!response.ok) throw new Error(`Module not found: ${moduleId}`);
+        const data = await response.json();
+        currentModule = data;
+        currentSectionIndex = 0;
+        quizAnswers = {};
+        renderModule(data);
+    } catch (err) {
+        document.getElementById('mainContent').innerHTML = `
+            <div class="section-eyebrow">Error</div>
+            <div class="section-title">Module Not Found</div>
+            <p class="body-text">Could not load <strong>${moduleId}</strong>. Please check the module ID or try again.</p>
+            <p class="body-text" style="color:var(--muted); font-size:13px;">${err.message}</p>
             <div class="btn-row">
-                <button class="btn btn-secondary" disabled>← Previous</button>
-                <button class="btn btn-primary" onclick="go('s2')">Next: The Basics →</button>
-            </div>
-        </div>
+                <button class="btn btn-primary" onclick="goHome()">&#8592; Back to All Modules</button>
+            </div>`;
+    }
+}
 
-        <!-- SECTION 2 -->
-        <div class="view" id="s2">
-            <div class="section-eyebrow">Level 1 · Module 1 · Section 02</div>
-            <div class="section-title">The Basics</div>
-            <div class="section-meta">What MoRo is. What it can do. What it cannot.</div>
+// ═══════════════════════════════════════════════════
+// RENDER MODULE
+// ═══════════════════════════════════════════════════
+function renderModule(data) {
+    const level = LEVELS.find(l => l.id === data.level) || {};
 
-            <p class="body-text"><strong>MoRo</strong> is an Autonomous Mobile Robot developed by DiFacto Robotics & Automation. It's a machine that can independently navigate a factory floor, pick up materials, transport them, and deliver them — all without a human driver.</p>
+    // Header
+    document.getElementById('headerLevel').textContent = `${data.level} — ${data.levelName || level.name || ''}`;
 
-            <div class="h2">Three Words Worth Understanding</div>
+    // Sidebar
+    document.getElementById('sidebarModuleLabel').textContent = `${data.level} — ${data.title}`;
+    const sidebarSections = data.sections.map((sec, i) => `
+        <div class="nav-item${i === 0 ? ' active' : ''}" id="nav-${i}" onclick="goSection(${i})">
+            <div class="nav-num">${String(i + 1).padStart(2, '0')}</div>
+            <div class="nav-text">${sec.title}</div>
+        </div>`).join('');
+    const quizNavItem = `
+        <div class="nav-item" id="nav-quiz" onclick="goSection('quiz')">
+            <div class="nav-num">${String(data.sections.length + 1).padStart(2, '0')}</div>
+            <div class="nav-text">Knowledge Check</div>
+        </div>`;
+    document.getElementById('sidebarNav').innerHTML = sidebarSections + quizNavItem;
 
-            <p class="body-text"><strong>Autonomous</strong> means it makes its own decisions about where to go. No one pushes it, steers it, or directs it in real time. It figures out its path, avoids obstacles, and adapts when things change.</p>
+    // Status
+    document.getElementById('statusDot').className = 'status-dot active';
+    document.getElementById('statusLabel').textContent = 'In Progress';
 
-            <p class="body-text"><strong>Mobile</strong> means it can move to different places. Unlike robotic arms fixed to a single workstation, MoRo travels across the factory floor — between machines, across departments, floor to floor.</p>
+    // Progress
+    updateProgress(0, data.sections.length + 1);
 
-            <p class="body-text"><strong>Robot</strong> means it follows programmed logic. It doesn't think the way humans do. It operates within defined rules, executes assigned missions, and alerts humans when it encounters something outside its programming.</p>
+    // Render first section
+    renderSection(0);
+}
 
-            <div class="h2">What MoRo Can Do</div>
-            <ul class="content-list">
-                <li><strong>Navigate autonomously</strong> — No driver. It determines and follows its own path.</li>
-                <li><strong>Transport loads reliably</strong> — Within its rated capacity, it delivers consistently.</li>
-                <li><strong>Coordinate with machines</strong> — Works with conveyors, CNC lathes, lifts, and assembly cells.</li>
-                <li><strong>Operate continuously</strong> — No breaks, no shift changes. 24/7 availability is standard.</li>
-                <li><strong>Detect and avoid obstacles</strong> — Real-time sensing of people, equipment, and changes in environment.</li>
-                <li><strong>Self-charge</strong> — Wireless charging at a dedicated dock. No cables to manage.</li>
-                <li><strong>Report errors</strong> — Alerts operator immediately when something is outside its parameters.</li>
-            </ul>
+// ═══════════════════════════════════════════════════
+// SECTION RENDERER
+// ═══════════════════════════════════════════════════
+function goSection(index) {
+    currentSectionIndex = index;
+    if (index === 'quiz') {
+        renderQuiz();
+    } else {
+        renderSection(index);
+    }
 
-            <div class="h2">What MoRo Cannot Do</div>
-            <ul class="content-list">
-                <li><strong>Think creatively</strong> — It follows programmed logic, not intuition or judgment.</li>
-                <li><strong>Handle unexpected situations alone</strong> — When something is outside its programming, it stops and waits for a human.</li>
-                <li><strong>Exceed its payload limits</strong> — Each model has a rated maximum. Exceeding it risks damage.</li>
-                <li><strong>Work in extreme environments</strong> — Designed for indoor factory conditions only.</li>
-            </ul>
+    // Update sidebar active state
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+    const activeNav = index === 'quiz'
+        ? document.getElementById('nav-quiz')
+        : document.getElementById(`nav-${index}`);
+    if (activeNav) activeNav.classList.add('active');
 
-            <div class="pull-quote">"Understanding what MoRo cannot do is as important as understanding what it can. These boundaries are not weaknesses — they are safety features."</div>
+    // Update progress
+    const total = currentModule.sections.length + 1;
+    const done = index === 'quiz' ? total : index + 1;
+    updateProgress(done, total);
 
-            <div class="h2">How MoRo Compares to Older Systems</div>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>System</th>
-                            <th>Navigation</th>
-                            <th>Flexibility</th>
-                            <th>Setup Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Conveyor</strong></td>
-                            <td>Fixed path, never changes</td>
-                            <td>Very limited</td>
-                            <td>Weeks to reconfigure</td>
-                        </tr>
-                        <tr>
-                            <td><strong>AGV</strong></td>
-                            <td>Follows tape or buried wire in floor</td>
-                            <td>Limited to pre-marked paths</td>
-                            <td>Weeks (install tape first)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>MoRo (IMR)</strong></td>
-                            <td>Uses factory's natural features — no tape needed</td>
-                            <td>Highly flexible, adapts to changes</td>
-                            <td>Days (map the space once)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    window.scrollTo(0, 0);
+}
 
+function renderSection(index) {
+    const data = currentModule;
+    const sec = data.sections[index];
+    const isFirst = index === 0;
+    const isLast = index === data.sections.length - 1;
+    const isDraft = (data.contentStatus || '').toUpperCase().includes('DRAFT');
+
+    const prevBtn = isFirst
+        ? `<button class="btn btn-secondary" disabled>&#8592; Previous</button>`
+        : `<button class="btn btn-secondary" onclick="goSection(${index - 1})">&#8592; Previous</button>`;
+
+    const nextBtn = isLast
+        ? `<button class="btn btn-primary" onclick="goSection('quiz')">Take the Assessment &#8594;</button>`
+        : `<button class="btn btn-primary" onclick="goSection(${index + 1})">Next: ${data.sections[index + 1].title} &#8594;</button>`;
+
+    const objectivesHTML = sec.learningObjectives && sec.learningObjectives.length
+        ? `<div class="h2">Learning Objectives</div>
+           <ul class="content-list">${sec.learningObjectives.map(o => `<li>${o}</li>`).join('')}</ul>`
+        : '';
+
+    const keyTermsHTML = sec.keyTerms && sec.keyTerms.length
+        ? `<div class="insight">
+               <div class="insight-label">Key Terms</div>
+               <p>${sec.keyTerms.join(' &nbsp;|&nbsp; ')}</p>
+           </div>`
+        : '';
+
+    document.getElementById('mainContent').innerHTML = `
+        ${isDraft ? `<div class="draft-banner">&#9888; DRAFT MODULE — Placeholder content. Final script pending.</div>` : ''}
+        <div class="view active">
+            <div class="section-eyebrow">${sec.eyebrow || `${data.level} · Module ${data.moduleNumber} · Section ${String(index + 1).padStart(2, '0')}`}</div>
+            <div class="section-title">${sec.title}</div>
+            <div class="section-meta">${data.duration || 'TBD'} &nbsp;·&nbsp; ${data.levelName || data.level}</div>
+            ${objectivesHTML}
+            <p class="body-text">${sec.content}</p>
+            ${keyTermsHTML}
             <div class="btn-row">
-                <button class="btn btn-secondary" onclick="go('s1')">← Previous</button>
-                <button class="btn btn-primary" onclick="go('s3')">Next: Three Variants →</button>
+                ${prevBtn}
+                ${nextBtn}
             </div>
-        </div>
+        </div>`;
+}
 
-        <!-- SECTION 3 -->
-        <div class="view" id="s3">
-            <div class="section-eyebrow">Level 1 · Module 1 · Section 03</div>
-            <div class="section-title">Three Variants</div>
-            <div class="section-meta">Same platform, three scales of capability.</div>
+// ═══════════════════════════════════════════════════
+// QUIZ RENDERER
+// ═══════════════════════════════════════════════════
+function renderQuiz() {
+    const data = currentModule;
+    const quiz = data.quiz;
+    const total = quiz.questions.length;
+    const pass = quiz.passingScore || 80;
+    const needed = Math.ceil(total * pass / 100);
 
-            <p class="body-text">DiFacto manufactures three versions of MoRo, each built for different factory demands. Despite their differences in size and payload capacity, all three share the same navigation technology, safety architecture, and software ecosystem. What you learn on one transfers completely to the others.</p>
+    const questionsHTML = quiz.questions.map((q, i) => {
+        const optionsHTML = q.options.map((opt, oi) => `
+            <li class="option">
+                <input type="radio" name="q${i}" value="${oi}" id="q${i}o${oi}">
+                <span class="option-text">${opt}</span>
+            </li>`).join('');
+        return `
+            <div class="question-block">
+                <div class="question-num">Question ${String(i + 1).padStart(2, '0')} of ${String(total).padStart(2, '0')}</div>
+                <div class="question-text">${q.question}</div>
+                <ul class="options-list">${optionsHTML}</ul>
+                <div class="feedback" id="f${i}"></div>
+            </div>`;
+    }).join('');
 
-            <div class="insight">
-                <div class="insight-label">MoRo A-250 — Light Duty</div>
-                <p><strong>Payload:</strong> 250 kg &nbsp;|&nbsp; <strong>Speed:</strong> 1.5 m/s &nbsp;|&nbsp; <strong>Weight:</strong> 160 kg</p>
-                <p>Designed for light assembly, small-part logistics, and environments where speed matters more than payload. Common in electronics, food & beverage, and pharmaceutical manufacturing.</p>
-            </div>
-
-            <div class="insight">
-                <div class="insight-label">MoRo A-500 — General Purpose (Most Common)</div>
-                <p><strong>Payload:</strong> 500 kg &nbsp;|&nbsp; <strong>Speed:</strong> 1.2 m/s &nbsp;|&nbsp; <strong>Weight:</strong> 230 kg</p>
-                <p>The workhorse of the A-Series. Most customer installations use the A-500 as their primary unit. Ideal for machine tending, part transfer, and mid-weight manufacturing operations.</p>
-            </div>
-
-            <div class="insight">
-                <div class="insight-label">MoRo A-1200 — Heavy Duty</div>
-                <p><strong>Payload:</strong> 1,200 kg &nbsp;|&nbsp; <strong>Speed:</strong> 0.8 m/s &nbsp;|&nbsp; <strong>Weight:</strong> 480 kg</p>
-                <p>Built for heavy material transfer, forklift automation, and high-load logistics in demanding industrial environments. Larger footprint, slower speed, built for strength.</p>
-            </div>
-
-            <div class="h2">Full Specification Comparison</div>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Specification</th>
-                            <th>A-250</th>
-                            <th>A-500</th>
-                            <th>A-1200</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Payload Capacity</td><td>250 kg</td><td>500 kg</td><td>1,200 kg</td></tr>
-                        <tr><td>Robot Weight</td><td>160 kg</td><td>230 kg</td><td>480 kg</td></tr>
-                        <tr><td>Max Speed</td><td>1.5 m/s</td><td>1.2 m/s</td><td>0.8 m/s</td></tr>
-                        <tr><td>Navigation Accuracy</td><td>±10 mm</td><td>±10 mm</td><td>±20 mm</td></tr>
-                        <tr><td>Turn Radius</td><td>Zero (in-place)</td><td>Zero (in-place)</td><td>Zero (in-place)</td></tr>
-                        <tr><td>Battery Type</td><td>LFP Lithium</td><td>LFP Lithium</td><td>LFP Lithium</td></tr>
-                        <tr><td>Runtime</td><td>8 hours</td><td>8 hours</td><td>8 hours</td></tr>
-                        <tr><td>Charging</td><td>&lt;1 hr wireless</td><td>&lt;1 hr wireless</td><td>&lt;1 hr wireless</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="btn-row">
-                <button class="btn btn-secondary" onclick="go('s2')">← Previous</button>
-                <button class="btn btn-primary" onclick="go('s4')">Next: Navigation →</button>
-            </div>
-        </div>
-
-        <!-- SECTION 4 -->
-        <div class="view" id="s4">
-            <div class="section-eyebrow">Level 1 · Module 1 · Section 04</div>
-            <div class="section-title">How Navigation Works</div>
-            <div class="section-meta">No tape. No magnets. Just lasers and intelligence.</div>
-
-            <p class="body-text">The most common question people ask when they first see MoRo: <em>How does it know where it is without any markings on the floor?</em></p>
-
-            <p class="body-text">The answer is a technology called <strong>ANT</strong> — Autonomous Navigation Technology — developed by BlueBotics and deployed in MoRo across all three variants. ANT uses a sensor called LiDAR to create and continuously update a precise map of the factory environment.</p>
-
-            <div class="h2">What LiDAR Does</div>
-            <p class="body-text">LiDAR stands for Light Detection and Ranging. The sensor shoots invisible laser light in 360 degrees and measures how long it takes for each beam to bounce back from surrounding surfaces. From thousands of those measurements per second, MoRo builds a detailed picture of everything around it — walls, machines, pillars, people.</p>
-
-            <div class="insight">
-                <div class="insight-label">Simple Analogy</div>
-                <p>Imagine walking through a dark room and tapping a cane on every surface. The echoes tell you where the walls are. LiDAR does the same thing — but with laser light, at the speed of light, thousands of times per second. MoRo doesn't need to see in the human sense. It measures.</p>
-            </div>
-
-            <div class="h2">SLAM — The Intelligence Behind Navigation</div>
-            <p class="body-text">SLAM stands for Simultaneous Localization and Mapping. It's the process that lets MoRo answer two questions at once, continuously: <em>Where am I?</em> and <em>What's around me?</em></p>
-
-            <p class="body-text">On its first pass through a new space, MoRo builds a map. On every subsequent pass, it compares what it currently sees against that stored map to confirm its precise location. Both happen at the same time — the map informs the position, the position refines the map.</p>
-
-            <div class="h2">A Practical Example</div>
-            <div class="insight">
-                <div class="insight-label">Machine Tending — Station A</div>
-                <p><strong>The task:</strong> A CNC lathe at Station A needs parts loaded every 5 minutes. The parts bin is at Station B, 20 meters away.</p>
-                <p><strong>With manual labor:</strong> 5 minutes per cycle — travel, load, return, repeat.</p>
-                <p><strong>With MoRo:</strong> 50 seconds per cycle. Navigate to B (15s), wait for load (10s), navigate to A (15s), deliver (10s). That's <strong>6 times faster</strong> on a single task. Over one 10-hour shift, one MoRo replaces the equivalent of several hours of repetitive human labor.</p>
-            </div>
-
-            <div class="btn-row">
-                <button class="btn btn-secondary" onclick="go('s3')">← Previous</button>
-                <button class="btn btn-primary" onclick="go('s5')">Next: Safety →</button>
-            </div>
-        </div>
-
-        <!-- SECTION 5 -->
-        <div class="view" id="s5">
-            <div class="section-eyebrow">Level 1 · Module 1 · Section 05</div>
-            <div class="section-title">Safety on the Floor</div>
-            <div class="section-meta">Your responsibility. MoRo's limits. How they fit together.</div>
-
-            <p class="body-text">MoRo is a capable machine, but it is still a machine. Working alongside it safely requires understanding how it behaves, where its limits are, and what your role is when something unexpected happens.</p>
-
-            <div class="h2">The Three Safety Zones</div>
-
-            <div class="insight">
-                <div class="insight-label">Safe Zone — 5 Metres and Beyond</div>
-                <p>MoRo moves at full operational speed in this range. Keep clear when it's in motion. If you enter this zone while MoRo is approaching, it will detect you and stop.</p>
-            </div>
-
-            <div class="insight">
-                <div class="insight-label">Caution Zone — 2 to 5 Metres</div>
-                <p>MoRo slows down in this range. You can work here, but stay aware. MoRo gives priority to you — it will stop or reroute rather than continue through.</p>
-            </div>
-
-            <div class="insight">
-                <div class="insight-label">Interaction Zone — 0 to 2 Metres</div>
-                <p>MoRo has stopped. It's waiting for a human interaction — load, unload, or manual override. You are in full control of this exchange.</p>
-            </div>
-
-            <div class="h2">What To Do When Things Go Wrong</div>
-            <ul class="content-list">
-                <li><strong>MoRo is in your path:</strong> It detects you and stops. You can wait, or move aside. Either way, you are safe.</li>
-                <li><strong>MoRo stops unexpectedly:</strong> Do not touch it. Do not push it. Call the operator or supervisor.</li>
-                <li><strong>You hear an alarm:</strong> Stop. Move at least 2 metres away. Alert your supervisor immediately.</li>
-                <li><strong>Battery warning appears:</strong> MoRo gives a light and sound warning, then drives itself to the charging dock.</li>
-                <li><strong>A fault code appears on the display:</strong> Note the code and call the operator. Do not attempt to clear it yourself.</li>
-            </ul>
-
-            <div class="h2">Your Responsibilities</div>
-            <div class="h3">You Are Responsible For</div>
-            <ul class="content-list">
-                <li>Keeping clear of MoRo's path when it's in motion</li>
-                <li>Keeping the floor free of debris, cables, and small objects</li>
-                <li>Reporting unusual behavior to your supervisor promptly</li>
-                <li>Respecting marked zones and warning indicators</li>
-            </ul>
-            <div class="h3">You Must Never</div>
-            <ul class="content-list">
-                <li>Attempt to move or push MoRo manually</li>
-                <li>Touch its sensors, cables, or charging contacts</li>
-                <li>Block the charging dock</li>
-                <li>Exceed its rated payload capacity</li>
-                <li>Ignore alarm sounds or warning lights</li>
-            </ul>
-
-            <div class="pull-quote">"Respect MoRo as you would any piece of heavy industrial equipment. Its safety systems are excellent — but they work best when the humans around it are paying attention too."</div>
-
-            <div class="btn-row">
-                <button class="btn btn-secondary" onclick="go('s4')">← Previous</button>
-                <button class="btn btn-primary" onclick="go('s6')">Take the Assessment →</button>
-            </div>
-        </div>
-
-        <!-- SECTION 6 — ASSESSMENT -->
-        <div class="view" id="s6">
-            <div class="section-eyebrow">Level 1 · Module 1 · Section 06</div>
+    document.getElementById('mainContent').innerHTML = `
+        <div class="view active">
+            <div class="section-eyebrow">${data.level} · Module ${data.moduleNumber} · Knowledge Check</div>
             <div class="section-title">Knowledge Check</div>
-            <div class="section-meta">5 questions · Pass mark: 80% · Retakes: unlimited</div>
+            <div class="section-meta">${total} questions &nbsp;·&nbsp; Pass mark: ${pass}% &nbsp;·&nbsp; Retakes: unlimited</div>
 
             <div class="assessment-intro">
-                <p class="body-text" style="margin-bottom: 0;">You've worked through the foundations. These five questions confirm the key concepts have landed. Answer carefully — you need <strong>4 out of 5 correct</strong> to complete Module 1 and unlock Module 2.</p>
+                <p class="body-text" style="margin-bottom:0;">
+                    Answer all questions carefully. You need <strong>${needed} out of ${total} correct</strong> to complete this module.
+                </p>
             </div>
 
-            <!-- Q1 -->
-            <div class="question-block">
-                <div class="question-num">Question 01 of 05</div>
-                <div class="question-text">How does MoRo know where it is without floor tape or markers?</div>
-                <ul class="options-list">
-                    <li class="option"><input type="radio" name="q1" value="a"><span class="option-text">GPS satellites from space</span></li>
-                    <li class="option"><input type="radio" name="q1" value="b"><span class="option-text">Magnetic field detection embedded in the floor</span></li>
-                    <li class="option"><input type="radio" name="q1" value="c"><span class="option-text">LiDAR sensors that emit invisible laser light and measure reflections</span></li>
-                </ul>
-                <div class="feedback" id="f1"></div>
-            </div>
-
-            <!-- Q2 -->
-            <div class="question-block">
-                <div class="question-num">Question 02 of 05</div>
-                <div class="question-text">MoRo stops unexpectedly in the middle of the aisle. What should you do?</div>
-                <ul class="options-list">
-                    <li class="option"><input type="radio" name="q2" value="a"><span class="option-text">Push it to clear the aisle</span></li>
-                    <li class="option"><input type="radio" name="q2" value="b"><span class="option-text">Call the operator and wait for instructions</span></li>
-                    <li class="option"><input type="radio" name="q2" value="c"><span class="option-text">Touch its sensors to diagnose the issue</span></li>
-                </ul>
-                <div class="feedback" id="f2"></div>
-            </div>
-
-            <!-- Q3 -->
-            <div class="question-block">
-                <div class="question-num">Question 03 of 05</div>
-                <div class="question-text">Which MoRo variant is rated to carry 500 kilograms?</div>
-                <ul class="options-list">
-                    <li class="option"><input type="radio" name="q3" value="a"><span class="option-text">MoRo A-250</span></li>
-                    <li class="option"><input type="radio" name="q3" value="b"><span class="option-text">MoRo A-500</span></li>
-                    <li class="option"><input type="radio" name="q3" value="c"><span class="option-text">MoRo A-1200</span></li>
-                </ul>
-                <div class="feedback" id="f3"></div>
-            </div>
-
-            <!-- Q4 -->
-            <div class="question-block">
-                <div class="question-num">Question 04 of 05</div>
-                <div class="question-text">What is the recommended safe distance to maintain from MoRo when it is in motion?</div>
-                <ul class="options-list">
-                    <li class="option"><input type="radio" name="q4" value="a"><span class="option-text">At least 1 metre</span></li>
-                    <li class="option"><input type="radio" name="q4" value="b"><span class="option-text">At least 5 metres</span></li>
-                    <li class="option"><input type="radio" name="q4" value="c"><span class="option-text">No minimum — MoRo will always stop before contact</span></li>
-                </ul>
-                <div class="feedback" id="f4"></div>
-            </div>
-
-            <!-- Q5 -->
-            <div class="question-block">
-                <div class="question-num">Question 05 of 05</div>
-                <div class="question-text">Can MoRo operate continuously without scheduled breaks?</div>
-                <ul class="options-list">
-                    <li class="option"><input type="radio" name="q5" value="a"><span class="option-text">Yes — it charges wirelessly and sustains 24/7 operation</span></li>
-                    <li class="option"><input type="radio" name="q5" value="b"><span class="option-text">No — it requires an 8-hour rest period like human operators</span></li>
-                </ul>
-                <div class="feedback" id="f5"></div>
-            </div>
+            ${questionsHTML}
 
             <div class="btn-row">
-                <button class="btn btn-secondary" onclick="reset()">Clear Answers</button>
-                <button class="btn btn-primary" onclick="submit()">Submit Assessment</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()">Clear Answers</button>
+                <button class="btn btn-primary" onclick="submitQuiz()">Submit Assessment</button>
             </div>
 
             <div class="score-card" id="scoreCard">
                 <div class="score-num" id="scoreNum">0</div>
-                <div class="score-sub">out of 5 correct</div>
+                <div class="score-sub">out of ${total} correct</div>
                 <div class="score-badge" id="scoreBadge">—</div>
-                <div id="passActions" style="display:none; margin-top: 28px;">
+                <div id="passActions" style="display:none; margin-top:28px;">
                     <button class="btn btn-primary" onclick="alert('Certificate generated. In production this downloads a PDF.')">Download Certificate</button>
                 </div>
             </div>
 
             <div class="section-footer">
-                <p>MoRo IMR Training Academy — Level 1, Module 1</p>
+                <p>MoRo IMR Training Academy — ${data.level}, Module ${data.moduleNumber}: ${data.title}</p>
                 <p>Designed to meet Industry Training Academy (ITA) standards. Safety content aligned with ISO 13849-1 and ILO occupational safety guidelines.</p>
-                <p>© 2026 DiFacto Robotics & Automation</p>
+                <p>&copy; 2026 DiFacto Robotics &amp; Automation</p>
             </div>
-        </div>
+        </div>`;
+}
 
-    </div><!-- /.main -->
-</div><!-- /.layout -->
+function submitQuiz() {
+    const data = currentModule;
+    const quiz = data.quiz;
+    const total = quiz.questions.length;
+    const pass = quiz.passingScore || 80;
+    const needed = Math.ceil(total * pass / 100);
+    let score = 0;
 
-<script>
-    const correct = { q1:'c', q2:'b', q3:'b', q4:'b', q5:'a' };
-    const sections = ['s1','s2','s3','s4','s5','s6'];
-    const progress = { s1:16, s2:32, s3:48, s4:64, s5:80, s6:96 };
-
-    function go(id) {
-        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        document.querySelectorAll('.nav-item').forEach((el, i) => {
-            el.classList.toggle('active', sections[i] === id);
-        });
-        document.getElementById('progressFill').style.width = progress[id] + '%';
-        window.scrollTo(0, 0);
-    }
-
-    function submit() {
-        let score = 0;
-        for (let i = 1; i <= 5; i++) {
-            const sel = document.querySelector(`input[name="q${i}"]:checked`);
-            const fb = document.getElementById(`f${i}`);
-            fb.className = 'feedback';
-            if (!sel) {
-                fb.classList.add('show','incorrect');
-                fb.textContent = 'Please select an answer.';
-            } else {
-                const ok = sel.value === correct[`q${i}`];
-                fb.classList.add('show', ok ? 'correct' : 'incorrect');
-                fb.textContent = ok ? '✓ Correct' : '✗ Incorrect — review the relevant section and try again.';
-                if (ok) score++;
-            }
+    quiz.questions.forEach((q, i) => {
+        const sel = document.querySelector(`input[name="q${i}"]:checked`);
+        const fb = document.getElementById(`f${i}`);
+        fb.className = 'feedback';
+        if (!sel) {
+            fb.classList.add('show', 'incorrect');
+            fb.textContent = 'Please select an answer.';
+        } else {
+            const ok = parseInt(sel.value) === q.correctAnswer;
+            fb.classList.add('show', ok ? 'correct' : 'incorrect');
+            fb.textContent = ok
+                ? '\u2713 Correct. ' + (q.feedback || '')
+                : '\u2717 Incorrect \u2014 review the relevant section and try again. ' + (q.feedback || '');
+            if (ok) score++;
         }
-        const card = document.getElementById('scoreCard');
-        document.getElementById('scoreNum').textContent = score;
-        document.getElementById('scoreBadge').textContent = score >= 4 ? `${score} / 5 — PASS` : `${score} / 5 — Not Yet`;
-        document.getElementById('scoreBadge').className = score >= 4 ? 'score-badge pass' : 'score-badge fail';
-        card.classList.add('show');
-        if (score >= 4) {
-            document.getElementById('passActions').style.display = 'block';
-            document.getElementById('progressFill').style.width = '100%';
-            document.getElementById('statusDot').className = 'status-dot done';
-            document.getElementById('statusLabel').textContent = 'Completed ✓';
-        }
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    });
 
-    function reset() {
-        document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
-        document.querySelectorAll('.feedback').forEach(el => el.className = 'feedback');
-        document.getElementById('scoreCard').classList.remove('show');
+    const card = document.getElementById('scoreCard');
+    const passed = score >= needed;
+    document.getElementById('scoreNum').textContent = score;
+    document.getElementById('scoreBadge').textContent = `${score} / ${total} \u2014 ${passed ? 'PASS' : 'Not Yet'}`;
+    document.getElementById('scoreBadge').className = `score-badge ${passed ? 'pass' : 'fail'}`;
+    card.classList.add('show');
+
+    if (passed) {
+        document.getElementById('passActions').style.display = 'block';
+        document.getElementById('progressFill').style.width = '100%';
+        document.getElementById('statusDot').className = 'status-dot done';
+        document.getElementById('statusLabel').textContent = 'Completed \u2713';
     }
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetQuiz() {
+    document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
+    document.querySelectorAll('.feedback').forEach(el => el.className = 'feedback');
+    const card = document.getElementById('scoreCard');
+    if (card) card.classList.remove('show');
+}
+
+// ═══════════════════════════════════════════════════
+// PROGRESS BAR
+// ═══════════════════════════════════════════════════
+function updateProgress(done, total) {
+    const pct = Math.round((done / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+}
+
+// ═══════════════════════════════════════════════════
+// BROWSER BACK BUTTON SUPPORT
+// ═══════════════════════════════════════════════════
+window.addEventListener('popstate', () => {
+    const params = new URLSearchParams(window.location.search);
+    const mid = params.get('module');
+    if (mid) {
+        loadModule(mid);
+    } else {
+        showHome();
+    }
+});
+
+// ═══════════════════════════════════════════════════
+// START
+// ═══════════════════════════════════════════════════
+init();
 </script>
 </body>
 </html>

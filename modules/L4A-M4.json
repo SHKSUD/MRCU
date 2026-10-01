@@ -1,0 +1,130 @@
+{
+  "moduleId": "L4A-M4",
+  "title": "Safety Oversight and Compliance",
+  "level": "L4A",
+  "levelName": "Supervisor Operations",
+  "levelColor": "#922B21",
+  "moduleNumber": 4,
+  "duration": "TBD",
+  "previousModule": "L4A-M3",
+  "nextModule": "L4A-M5",
+  "prerequisite": "L4A-M3 (80%)",
+  "contentStatus": "DRAFT - Placeholder content. Replace with final module script.",
+  "sections": [
+    {
+      "sectionId": 1,
+      "eyebrow": "L4A - Module 4 - Section 01",
+      "title": "Introduction",
+      "learningObjectives": [
+        "Understand the key principles covered in this section.",
+        "Apply the concepts to real factory floor scenarios."
+      ],
+      "content": "PLACEHOLDER - This section covers Introduction for the module 'Safety Oversight and Compliance'. Final content will be provided by the subject-matter expert. The structure, quiz, and navigation are all live and ready.",
+      "keyTerms": ["MoRo", "L4A", "placeholder", "content pending"]
+    },
+    {
+      "sectionId": 2,
+      "eyebrow": "L4A - Module 4 - Section 02",
+      "title": "Core Concepts",
+      "learningObjectives": [
+        "Understand the key principles covered in this section.",
+        "Apply the concepts to real factory floor scenarios."
+      ],
+      "content": "PLACEHOLDER - This section covers Core Concepts for the module 'Safety Oversight and Compliance'. Final content will be provided by the subject-matter expert. The structure, quiz, and navigation are all live and ready.",
+      "keyTerms": ["MoRo", "L4A", "placeholder", "content pending"]
+    },
+    {
+      "sectionId": 3,
+      "eyebrow": "L4A - Module 4 - Section 03",
+      "title": "Procedures and Practice",
+      "learningObjectives": [
+        "Understand the key principles covered in this section.",
+        "Apply the concepts to real factory floor scenarios."
+      ],
+      "content": "PLACEHOLDER - This section covers Procedures and Practice for the module 'Safety Oversight and Compliance'. Final content will be provided by the subject-matter expert. The structure, quiz, and navigation are all live and ready.",
+      "keyTerms": ["MoRo", "L4A", "placeholder", "content pending"]
+    },
+    {
+      "sectionId": 4,
+      "eyebrow": "L4A - Module 4 - Section 04",
+      "title": "Common Scenarios",
+      "learningObjectives": [
+        "Understand the key principles covered in this section.",
+        "Apply the concepts to real factory floor scenarios."
+      ],
+      "content": "PLACEHOLDER - This section covers Common Scenarios for the module 'Safety Oversight and Compliance'. Final content will be provided by the subject-matter expert. The structure, quiz, and navigation are all live and ready.",
+      "keyTerms": ["MoRo", "L4A", "placeholder", "content pending"]
+    },
+    {
+      "sectionId": 5,
+      "eyebrow": "L4A - Module 4 - Section 05",
+      "title": "Summary and Key Takeaways",
+      "learningObjectives": [
+        "Understand the key principles covered in this section.",
+        "Apply the concepts to real factory floor scenarios."
+      ],
+      "content": "PLACEHOLDER - This section covers Summary and Key Takeaways for the module 'Safety Oversight and Compliance'. Final content will be provided by the subject-matter expert. The structure, quiz, and navigation are all live and ready.",
+      "keyTerms": ["MoRo", "L4A", "placeholder", "content pending"]
+    }
+  ],
+  "quiz": {
+    "passingScore": 80,
+    "questions": [
+      {
+        "id": 1,
+        "question": "PLACEHOLDER - Question 1 for L4A-M4. Replace with final assessment question.",
+        "options": [
+          "Option A - replace with correct answer",
+          "Option B - replace with distractor",
+          "Option C - replace with distractor"
+        ],
+        "correctAnswer": 0,
+        "feedback": "PLACEHOLDER - Explanation for the correct answer to question 1."
+      },
+      {
+        "id": 2,
+        "question": "PLACEHOLDER - Question 2 for L4A-M4. Replace with final assessment question.",
+        "options": [
+          "Option A - replace with correct answer",
+          "Option B - replace with distractor",
+          "Option C - replace with distractor"
+        ],
+        "correctAnswer": 0,
+        "feedback": "PLACEHOLDER - Explanation for the correct answer to question 2."
+      },
+      {
+        "id": 3,
+        "question": "PLACEHOLDER - Question 3 for L4A-M4. Replace with final assessment question.",
+        "options": [
+          "Option A - replace with correct answer",
+          "Option B - replace with distractor",
+          "Option C - replace with distractor"
+        ],
+        "correctAnswer": 0,
+        "feedback": "PLACEHOLDER - Explanation for the correct answer to question 3."
+      },
+      {
+        "id": 4,
+        "question": "PLACEHOLDER - Question 4 for L4A-M4. Replace with final assessment question.",
+        "options": [
+          "Option A - replace with correct answer",
+          "Option B - replace with distractor",
+          "Option C - replace with distractor"
+        ],
+        "correctAnswer": 0,
+        "feedback": "PLACEHOLDER - Explanation for the correct answer to question 4."
+      },
+      {
+        "id": 5,
+        "question": "PLACEHOLDER - Question 5 for L4A-M4. Replace with final assessment question.",
+        "options": [
+          "Option A - replace with correct answer",
+          "Option B - replace with distractor",
+          "Option C - replace with distractor"
+        ],
+        "correctAnswer": 0,
+        "feedback": "PLACEHOLDER - Explanation for the correct answer to question 5."
+      }
+    ]
+  }
+}
